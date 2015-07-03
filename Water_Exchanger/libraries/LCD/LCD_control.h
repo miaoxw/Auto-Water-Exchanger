@@ -3,6 +3,7 @@
   Interface for the main progress to call
 */
 
+namespace lcd{
 //使用屏幕显示前，调用此方法初始化
 void LCD_setup();
 
@@ -49,6 +50,10 @@ void LCD_hide_min();
 void LCD_show_hour();
 void LCD_hide_hour();
 
+//屏幕上显示系统状态，任意小于21个字符的英文字符串
+void LCD_change_state(char* str);
+}
+
 /*
   Locations of elements on lcd screen
 */
@@ -68,10 +73,15 @@ void LCD_hide_hour();
 #define LCD_NUMBER_MIN_Y 28
 #define LCD_CONTROL_MODE_X 8
 #define LCD_CONTROL_MODE_Y 86
-#define LCD_PH_X 90
+#define LCD_PH_X 82
 #define LCD_PH_Y 86
 #define LCD_TEM_X 138
 #define LCD_TEM_Y 86
+#define LCD_STATE_X 8
+#define LCD_STATE_Y 106
+#define LCD_LINE_X1 8
+#define LCD_LINE_X2 172
+#define LCD_LINE_Y 102
 #define LCD_FONT_WIDTH 8
 #define LCD_NUMBER_WIDTH 32
 

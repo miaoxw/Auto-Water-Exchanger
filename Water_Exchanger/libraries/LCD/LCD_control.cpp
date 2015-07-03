@@ -2,6 +2,8 @@
 #include <UTFT.h>
 #include "LCD_control.h"
 
+
+
 // Declare which fonts we will be using
 extern uint8_t SmallFont[];
 extern uint8_t BigFont[];
@@ -13,6 +15,7 @@ char *__LCD_0 = "0";
 unsigned char __LCD_min = 0;
 unsigned char __LCD_hour = 0;
 
+namespace lcd{
 void LCD_setup(){
   randomSeed(analogRead(0));
   //  Setup the LCD
@@ -21,6 +24,9 @@ void LCD_setup(){
   myGLCD.InitLCD();
 
   myGLCD.clrScr();
+
+  myGLCD.setColor(FONT_COLOR_R, FONT_COLOR_G, FONT_COLOR_B);
+  myGLCD.drawLine(LCD_LINE_X1, LCD_LINE_Y, LCD_LINE_X2, LCD_LINE_Y);
 }
 
 void LCD_work_mode_auto(){
@@ -38,7 +44,7 @@ void LCD_work_mode_manual(){
 void LCD_number_mode_time(){
   myGLCD.setColor(FONT_COLOR_R, FONT_COLOR_G, FONT_COLOR_B);
   myGLCD.setFont(SmallFont);
-  myGLCD.print("TIME   ", LCD_NUMBER_MODE_X, LCD_NUMBER_MODE_Y);
+  myGLCD.print("   TIME", LCD_NUMBER_MODE_X, LCD_NUMBER_MODE_Y);
 }
 
 void LCD_number_mode_setting(){
@@ -155,4 +161,12 @@ void LCD_hide_hour(){
   myGLCD.print(__LCD_0, LCD_NUMBER_HOUR_X, LCD_NUMBER_HOUR_Y);
   __LCD_0[0] = '0'+(int)(hour%10);
   myGLCD.print(__LCD_0, LCD_NUMBER_HOUR_X+LCD_NUMBER_WIDTH, LCD_NUMBER_HOUR_Y);
+}
+
+void LCD_change_state(char* str){
+  myGLCD.setColor(FONT_COLOR_R, FONT_COLOR_G, FONT_COLOR_B);
+  myGLCD.setFont(SmallFont);
+  myGLCD.print(str, LCD_STATE_X, LCD_STATE_Y);
+}
+
 }
