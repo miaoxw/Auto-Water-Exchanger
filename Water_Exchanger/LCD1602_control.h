@@ -1,4 +1,3 @@
-
 /*
   Interface for the main progress to call
 */

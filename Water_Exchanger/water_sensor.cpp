@@ -1,6 +1,10 @@
 #include "water_sensor.h"
+#include <arduino.h>
+
+char water_sensor_pin = Ports::WATER_SENSOR;
+
 bool water_sensor::is_overflow(){
-	int val = analogRead(water_sensor::water_sensor_pin);
+	int val = analogRead(water_sensor_pin);
 	//Serial.print(val);
 	if (val>100){
 		//Serial.print("warning!!!\n");
