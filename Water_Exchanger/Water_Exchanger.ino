@@ -1,11 +1,17 @@
+#include "timer.h"
 #include "dht22.h"
 #include "ports.h"
 #include "pump.h"
 #include "water_sensor.h"
+#include "system_state.h"
 
 using Ports::FISH_TANK_PUMP;
 using Ports::TAP_WATER_PUMP;
 using Ports::DEWATERING_PUMP;
+
+using SystemState::isManualChanging;
+using SystemState::temperature;
+using SystemState::full;
 
 void(*fishTankDecision[2][2])() = {
 		{ Pump::fishTankPumpOn, Pump::fishTankPumpOn },
@@ -29,8 +35,8 @@ void setup()
 
 void loop()
 {
-	char temprature = (char)dht22::getTemperature();
-	char full = water_sensor::is_overflow() ? 1 : 0;
+	temperature = (char)round(dht22::getTemperature());
+	full = water_sensor::is_overflow() ? 1 : 0;
 	//Do something?
-	fishTankDecision[temprature][full]();
+	fishTankDecision[temperature][full]();
 }
