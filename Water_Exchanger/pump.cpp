@@ -6,10 +6,10 @@ using namespace Ports;
 
 void Pump::fishTankPumpOn()
 {
-	digitalWrite(FISH_TANK_PUMP,LOW);
+	digitalWrite(FISH_TANK_PUMP, LOW);
 }
 
 void Pump::fishTankPumpOff()
 {
-	digitalWrite(FISH_TANK_PUMP,HIGH);
+	digitalWrite(FISH_TANK_PUMP, HIGH);
 }

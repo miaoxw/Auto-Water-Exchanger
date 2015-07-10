@@ -11,7 +11,7 @@ namespace dht22
 	{
 		dht.begin();
 	}
-	
+
 	float getTemperature()
 	{
 		float t = dht.readTemperature();
