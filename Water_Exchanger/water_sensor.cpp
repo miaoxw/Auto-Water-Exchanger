@@ -4,7 +4,7 @@
 
 using namespace Ports;
 
-bool water_sensor::isFishTankOverflow(){
+bool WaterSensor::isFishTankOverflow(){
 	int val = analogRead(FISHTANK_WATER_SENSOR);
 	//Serial.print(val);
 	if (val > 100)
@@ -19,7 +19,7 @@ bool water_sensor::isFishTankOverflow(){
 	}
 }
 
-bool water_sensor::isWaterTankOverflow(){
+bool WaterSensor::isWaterTankOverflow(){
 	int val = analogRead(WATERTANK_WATER_SENSOR);
 	//Serial.print(val);
 	if (val > 100)

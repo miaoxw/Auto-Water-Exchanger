@@ -2,29 +2,30 @@
 #include <TimerOne.h>
 #include "system_state.h"
 #include "equipment.h"
+#include "storage.h"
 
 namespace Timer
 {
-	static int tickCount;
-	static int countdownBase=800000;				//换水的周期，大于604800（一周）视为无效
+	static long tickCount;
+	static long countdownBase=800000;				//换水的周期，大于604800（一周）视为无效
 
 	static int periodicalTickCount;
-	static int periodicalCountdownBase = 300;		//周期性换水持续300秒？
+	static const int periodicalCountdownBase = 300;		//周期性换水持续300秒？
 
 	void timerISR();
 
-	void setChangeWaterTime(int sec);
+	void setChangeWaterTime(long sec);
 }
 
-void Timer::init(int deltaTime)
+void Timer::init(long deltaTime)
 {
-	Timer1.initialize(10000000UL);						//每秒一次的中断，受硬件限制无法使用分钟为周期单位
-	setChangeWaterTime(720);
-	periodicalCountdownBase = 300;
+	Timer1.initialize(10000000L);						//每秒一次的中断，受硬件限制无法使用分钟为周期单位
+	//读入设置
+	setChangeWaterTime(Storage::readlong(Storage::COUNTDOWNBASE_ADDRESS));
 	Timer1.attachInterrupt(timerISR);
 }
 
-void Timer::setChangeWaterTime(int sec)
+void Timer::setChangeWaterTime(long sec)
 {
 	countdownBase = sec;
 	//修改定时时间后重新开始计时

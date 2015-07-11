@@ -3,7 +3,7 @@
 #define TIMER_H
 namespace Timer
 {
-	void init(int deltaTime=1000000);
+	void init(long deltaTime=1000000);
 }
 
 #endif
