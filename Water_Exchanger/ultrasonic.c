@@ -10,7 +10,7 @@ p_max_loop——最大循环次数(包括丢弃的数据在内,最多测量多�
 返回值：
 距离，单位厘米
 -1，如果出错
-*
+*/
 
 float get_distance(int p_trig,int p_echo,float p_min,float p_max,int p_count,int p_max_loop)
 {
