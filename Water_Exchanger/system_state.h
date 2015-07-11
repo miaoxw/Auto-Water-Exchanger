@@ -9,11 +9,18 @@
 
 namespace SystemState
 {
+	//Global state
 	extern bool isManualChanging;
-	extern char temperature;
-	extern bool full;
 	extern bool isPeriodicalChaningWater;
 	extern bool isChangingWater;
+
+	//Fish tank
+	extern char temperature;
+	extern bool fishTankFull;
+	extern bool isWaterQualified;
+	
+	//Water tank
+	extern bool waterTankFull;
 }
 
 #endif

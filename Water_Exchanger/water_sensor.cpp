@@ -1,17 +1,35 @@
 #include "water_sensor.h"
+#include "ports.h"
 #include <arduino.h>
 
-char water_sensor_pin = Ports::WATER_SENSOR;
+using namespace Ports;
 
-bool water_sensor::is_overflow(){
-	int val = analogRead(water_sensor_pin);
+bool water_sensor::isFishTankOverflow(){
+	int val = analogRead(FISHTANK_WATER_SENSOR);
 	//Serial.print(val);
-	if (val > 100){
+	if (val > 100)
+	{
 		//Serial.print("warning!!!\n");
-		return 1;
+		return true;
 	}
-	else{
+	else
+	{
 		//Serial.print("normal!!!\n");
-		return 0;
+		return false;
+	}
+}
+
+bool water_sensor::isWaterTankOverflow(){
+	int val = analogRead(WATERTANK_WATER_SENSOR);
+	//Serial.print(val);
+	if (val > 100)
+	{
+		//Serial.print("warning!!!\n");
+		return true;
+	}
+	else
+	{
+		//Serial.print("normal!!!\n");
+		return false;
 	}
 }
