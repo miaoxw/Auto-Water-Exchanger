@@ -15,7 +15,7 @@ namespace SystemState
 	extern bool isChangingWater;
 
 	//Fish tank
-	extern char temperature;
+	extern float temperature;
 	extern bool fishTankFull;
 	extern bool isWaterQualified;
 	
