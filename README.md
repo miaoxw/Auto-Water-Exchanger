@@ -23,6 +23,12 @@ Bingjie Jiang
 * Android Remote Control  
 Wenqing Zhou
 
+##Chronicle of Events
+###August 1, 2015  
+* The system is integrated for test for the first time.
+* All basic features have passed the test.
+* The prototype satisfies the need for taking demo videos.
+
 ##Features
 * Extendibility
 * Reliabilty

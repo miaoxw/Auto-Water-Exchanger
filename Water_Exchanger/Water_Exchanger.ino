@@ -88,15 +88,15 @@ void loop()
 	isWaterQualified = Ph::isWaterQualified();
 	wdt_reset();
 
-	//Serial.print("Temprature:");
-	//Serial.print(temperature, 1);
-	//Serial.println(" degrees C");
-	//Serial.print("Fish tank:");
-	//Serial.println(fishTankFull?"Full":"Not full");
-	//Serial.print("Fish tank water quality:");
-	//Serial.println(isWaterQualified ? "Good" : "Bad");
-	//Serial.print("Water tank:");
-	//Serial.println(waterTankFull ? "Full\n\n" : "Not full\n\n");
+	Serial.print("Temprature:");
+	Serial.print(temperature, 1);
+	Serial.println(" degrees C");
+	Serial.print("Fish tank:");
+	Serial.println(fishTankFull?"Full":"Not full");
+	Serial.print("Fish tank water quality:");
+	Serial.println(isWaterQualified ? "Good" : "Bad");
+	Serial.print("Water tank:");
+	Serial.println(waterTankFull ? "Full\n\n" : "Not full\n\n");
 
 	if (!SystemState::isManualChanging)
 	{

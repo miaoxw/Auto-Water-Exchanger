@@ -37,7 +37,7 @@ namespace Ports
 	PROHIBITED(DIGITAL static const char BY_INT_2 = 21;)
 	DIGITAL OUT static const char LCD_RS = 31;
 	DIGITAL OUT static const char LCD_RW = 33;
-	DIGITAL OUT static const char LCD_EN = 35;
+	DIGITAL OUT static const char LCD_EN = 35;                                                       
 	DIGITAL OUT static const char LCD_D4 = 37;
 	DIGITAL OUT static const char LCD_D5 = 39;
 	DIGITAL OUT static const char LCD_D6 = 41;

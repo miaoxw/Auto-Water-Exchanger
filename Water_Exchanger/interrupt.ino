@@ -95,7 +95,7 @@ void Interrupt::getKey()
 	if (adcValue > ADC_TRESHOLD)	//Avoid noise
 	{
 		//do ISR according to the key
-		int keyCode = mapKey(translateToKeyCode(adcValue));
+		unsigned int keyCode = mapKey(translateToKeyCode(adcValue));
 		operateFSM(keyCode);
 	}
 

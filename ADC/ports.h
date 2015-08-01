@@ -1,12 +1,6 @@
 #ifndef _PORTS_h
 #define _PORTS_h
 
-#if defined(ARDUINO) && ARDUINO >= 100
-	#include "arduino.h"
-#else
-	#include "WProgram.h"
-#endif
-
 #define ANALOG
 #define DIGITAL
 #define PWM
