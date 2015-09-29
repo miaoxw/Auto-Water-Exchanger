@@ -12,9 +12,7 @@ namespace dht22
 
 	float getTemperature()
 	{
-		int chk;
-		delay(2000);
-		chk=DHT.read22(Ports::DHT22_PIN);
+		int chk=DHT.read22(Ports::DHT22_PIN);
 		if (chk != DHTLIB_OK)
 			return 0.0/0;
 		else

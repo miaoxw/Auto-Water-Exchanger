@@ -76,11 +76,10 @@ void setup()
 
 void loop()
 {
-	wdt_disable();
 	float newTemprature = dht22::getTemperature();
 	if (!isnan(newTemprature))
 		temperature = newTemprature;
-	wdt_enable(TIMEOUT);
+	wdt_reset();	
 	fishTankFull = WaterSensor::isFishTankOverflow();
 	wdt_reset();
 	waterTankFull = WaterSensor::isWaterTankOverflow();
@@ -109,5 +108,6 @@ void loop()
 	}
 
 	//喂狗
+	delay(2000);
 	wdt_reset();
 }
